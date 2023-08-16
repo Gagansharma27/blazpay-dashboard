@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import bgImage from '../../assets/dashboard_bg.png';
-import logo from '../../assets/logo_blazpay.svg';
+import bgImage from '../../../assets/dashboard_bg.png';
+import logo from '../../../assets/logo_blazpay.svg';
+import { useNavigate } from 'react-router-dom'; 
 
 const RegisterForm = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [mobile_num, set_mobile_num] = useState('');
   const [otpSent_m, setOtpSent_m] = useState(false);
@@ -27,6 +29,7 @@ const RegisterForm = () => {
     event.preventDefault();
     console.log('Form submitted with', 'email:', email, 'and mobile_num:', mobile_num);
     // next steps ...
+    navigate('/user/password');
   };
 
   return (
